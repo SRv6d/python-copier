@@ -1,0 +1,60 @@
+[project]
+name = "{{ package_name }}"
+description = "{{ project_description }}"
+authors = [
+    {name = "{{ author_name }}", email = "{{ author_email }}"}
+]
+license = "{{ license }}"
+readme = "README.md"
+
+#requires-python = ">=3.7"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "<<PYTHON VERSIONS >>",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+
+#requires-python = ">=3.7"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/{{ repository_namespace }}/{{ project_slug }}"
+Issues = "https://github.com/{{ repository_namespace }}/{{ project_slug }}/issues"
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+
+[tool.pdm.version]
+source = "scm"
+write_to = "src/{{ project_slug }}/__init__.py"
+write_template = "__version__ = '{}'"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "nox",
+    "black",
+    "ruff",
+]
+typecheck = [
+    "mypy",
+]
+type_stubs = []
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
+    "pytest-github-actions-annotate-failures",
+]
+jupyter = [
+    "jupyter",
+    "notebook",
+]
+    
+
+
