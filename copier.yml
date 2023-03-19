@@ -7,7 +7,7 @@ project_description:
 project_slug:
   type: str
   help: The projects slug.
-  default: "{{ project_name | lower | replace('_', '-') | replace(' ', '-') }}"
+  default: "{{ project_name | lower | replace(' ', '-') }}"
 author_name:
   type: str
   help: The authors full name.
@@ -25,7 +25,7 @@ repository_namespace:
 package_name:
   type: str
   help: The name of the pip package.
-  default: "{{ repository_slug }}"
+  default: "{{ project_slug  }}"
 python_version:
   choices:
     3.7+: ["3.7", "3.8", "3.9", "3.10", "3.11"]
