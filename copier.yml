@@ -28,7 +28,11 @@ package_name:
   default: "{{ project_slug  }}"
 python_version:
   choices:
-    3.7+: ["3.7", "3.8", "3.9", "3.10", "3.11"]
-    3.8+: ["3.8", "3.9", "3.10", "3.11"]
+    3.7+:
+      versions: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+      black_target_versions: ["py37", "py38", "py39", "py310", "py311"]
+    3.8+:
+      versions: ["3.8", "3.9", "3.10", "3.11"]
+      black_taget_versions: ["py38", "py39", "py310", "py311"]
 
 _subdirectory: template
