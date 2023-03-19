@@ -1,10 +1,12 @@
 project_name:
   type: str
+  help: The name of the project.
 project_description:
   type: str
+  help: A description of the project.
 project_slug:
   type: str
-  help: The project slug.
+  help: The projects slug.
   default: "{{ project_name | lower | replace('_', '-') | replace(' ', '-') }}"
 author_name:
   type: str
