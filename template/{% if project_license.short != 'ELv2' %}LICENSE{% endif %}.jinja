@@ -1,4 +1,4 @@
-{% if project_license == "MIT License" -%}
+{% if project_license.short == "MIT" -%}
 MIT License
 
 Copyright (c) {{ "%Y" | strftime }} {{ author_name }} <{{ author_email }}>
@@ -20,7 +20,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-{% elif project_license == "GNU General Public License v3.0" -%}
+{% elif project_license.short == "GPL-3.0" -%}
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
