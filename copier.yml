@@ -10,7 +10,6 @@ project_slug:
   default: "{{ project_name | lower | replace(' ', '-') }}"
 project_license:
   help: The license of the project.
-  default: MIT License
   choices:
     MIT License:
       short: MIT
