@@ -13,13 +13,13 @@ jobs:
           python-version: "3.11"
       - run: pip3 install -r requirements.txt
       - run: |
-          copier . test-project
-          -d project_name="Template Test"
-          -d project_description="The description of a template test."
-          -d project_license="MIT License"
-          -d author_name="Continuous Integration"
-          -d author_email="test@ci.com"
-          -d author_username="ci"
+          copier . test-project \
+          -d project_name="Template Test" \
+          -d project_description="The description of a template test." \
+          -d project_license="MIT License" \
+          -d author_name="Continuous Integration" \
+          -d author_email="test@ci.com" \
+          -d author_username="ci" \
           -d python_version="3.8+"
       - name: lint created project
         uses: github/super-linter/slim@v4
