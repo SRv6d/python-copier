@@ -59,8 +59,8 @@ jupyter = [
 ]
 
 [tool.black]
-target-version = {{ python_version.black_target_versions }}
-include = '\.pyi?$'
+target-version = ["{{ python_version.black_target_versions | join('", "') }}"]
+include = "\.pyi?$"
 
 [tool.ruff]
 line-length = 88

@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        python_version: {{ python_version.versions }}
+        python_version: ["{{ python_version.versions | join('", "') }}"]
         nox_session:
           - ruff
           - black
