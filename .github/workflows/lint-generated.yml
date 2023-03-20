@@ -25,4 +25,5 @@ jobs:
         uses: github/super-linter/slim@v4
         env:
           DEFAULT_BRANCH: main
+          FILTER_REGEX_INCLUDE: .test-project/.*
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
