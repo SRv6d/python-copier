@@ -1,0 +1,23 @@
+on: [push]
+
+jobs:
+  lint-generated:
+    name: Lint the generated project
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - run: pip3 install -r requirements.txt
+      - run: |
+          copier . test-project
+          --data {"author_email": "test@ci.com","author_name": "Continuous Integration","author_username": "CI","package_name": "test-copier","project_description": "A copier template test.","project_license": {"short": "MIT"},"project_name": "test-copier","project_slug": "test","python_version": {"black_target_versions": ["py310","py311"],"versions": ["3.10","3.11"]},"repository_namespace": "test"}
+      - name: lint created project
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
