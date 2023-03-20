@@ -60,3 +60,18 @@ jupyter = [
 [tool.black]
 target-version = {{ python_version.black_target_versions }}
 include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 88
+select = ["C", "D", "E", "F", "I", "S", "W", "PLC", "PLE", "PLR", "PLW"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D107"]
+per-file-ignores = {
+    "tests/*" = ["S101"]
+    "__init__.py" = ["F401"]
+}
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.mccabe]
+max-complexity = 10
