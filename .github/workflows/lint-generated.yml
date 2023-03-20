@@ -14,7 +14,13 @@ jobs:
       - run: pip3 install -r requirements.txt
       - run: |
           copier . test-project
-          --data {"author_email": "test@ci.com","author_name": "Continuous Integration","author_username": "CI","package_name": "test-copier","project_description": "A copier template test.","project_license": {"short": "MIT"},"project_name": "test-copier","project_slug": "test","python_version": {"black_target_versions": ["py310","py311"],"versions": ["3.10","3.11"]},"repository_namespace": "test"}
+          -d project_name="Template Test"
+          -d project_description="The description of a template test."
+          -d project_license="MIT License"
+          -d author_name="Continuous Integration"
+          -d author_email="test@ci.com"
+          -d author_username="ci"
+          -d python_version="3.8+"
       - name: lint created project
         uses: github/super-linter/slim@v4
         env:
