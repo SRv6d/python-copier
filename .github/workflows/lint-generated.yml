@@ -14,16 +14,12 @@ jobs:
       - run: pip3 install -r requirements.txt
       - run: |
           copier . test-project \
+          --defaults
           -d project_name="Template Test" \
           -d project_description="The description of a template test." \
-          -d project_slug="test" \
-          -d project_license='{"project_license": {"short": "MIT"}}' \
           -d author_name="Continuous Integration" \
           -d author_email="test@ci.com" \
-          -d author_username="ci" \
-          -d repository_namespace="ci" \
-          -d package_name="test" \
-          -d python_version='{"python_version": {"black_taget_versions": ["py38","py39","py310","py311"],"versions": ["3.8","3.9","3.10","3.11"]}}'
+          -d author_username="ci"
       - name: lint created project
         uses: github/super-linter/slim@v4
         env:
