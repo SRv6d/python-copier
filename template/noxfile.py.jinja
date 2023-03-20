@@ -35,7 +35,7 @@ def mypy(session) -> None:
 @nox.session(python=PYTHON)
 def pytest(session) -> None:
     """Run pytest tests."""
-    session.run("pdm", "install", "--no-self", external=True)
+    session.run("pdm", "install", "--check", external=True)
     session.run("pytest", "--cov", "tests/unit")
 
 @nox.session(python=PYTHON)
