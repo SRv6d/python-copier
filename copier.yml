@@ -11,12 +11,13 @@ project_slug:
 project_license:
   help: The license of the project.
   choices:
-    MIT License:
+    MIT License: &mit_license
       short: MIT
     GNU General Public License v3.0:
       short: GPL-3.0
     Elastic License 2.0 (ELv2):
       short: ELv2
+  default: *mit_license
 author_name:
   type: str
   help: The authors full name.
@@ -40,7 +41,7 @@ python_version:
     3.7+:
       versions: ["3.7", "3.8", "3.9", "3.10", "3.11"]
       black_target_versions: ["py37", "py38", "py39", "py310", "py311"]
-    3.8+:
+    3.8+: &version_defaults
       versions: ["3.8", "3.9", "3.10", "3.11"]
       black_taget_versions: ["py38", "py39", "py310", "py311"]
     3.9+:
@@ -52,5 +53,6 @@ python_version:
     3.11+:
       versions: ["3.11"]
       black_taget_versions: ["py311"]
+  default: *version_defaults
 
 _subdirectory: template
