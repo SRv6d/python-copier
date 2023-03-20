@@ -16,7 +16,7 @@ jobs:
           copier . test-project
           --data {"author_email": "test@ci.com","author_name": "Continuous Integration","author_username": "CI","package_name": "test-copier","project_description": "A copier template test.","project_license": {"short": "MIT"},"project_name": "test-copier","project_slug": "test","python_version": {"black_target_versions": ["py310","py311"],"versions": ["3.10","3.11"]},"repository_namespace": "test"}
       - name: lint created project
-        uses: github/super-linter@v4
+        uses: github/super-linter/slim@v4
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
