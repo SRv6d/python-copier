@@ -15,11 +15,7 @@ os.environ.update({"PDM_IGNORE_SAVED_PYTHON": "1"})
 def ruff(session: nox.Session) -> None:
     """Code Style linting using ruff."""
     session.run("pdm", "install", "--no-self", external=True)
-
-    if session.posargs:
-        session.run("ruff", *session.posargs, *LINT_LOCATIONS)
-    else:
-        session.run("ruff", *LINT_LOCATIONS)
+    session.run("ruff", *LINT_LOCATIONS)
 
 
 @nox.session(python=PYTHON)
