@@ -15,20 +15,20 @@ jobs:
           python-version: "3.11"
       - run: pip3 install -r requirements.txt
       - run: |
-          copier . test-project \
+          copier . acme-project \
           --defaults \
-          -d project_name="Template Test" \
-          -d project_description="The description of a template test." \
-          -d author_name="Continuous Integration" \
-          -d author_email="test@ci.com" \
-          -d author_username="ci"
+          -d project_name="Project ACME" \
+          -d project_description="The description of the ACME project." \
+          -d author_name="American Company" \
+          -d author_email="boom@acme.com" \
+          -d author_username="acme"
       - name: create lockfile
         run: pdm lock
         working-directory: acme-project
       - name: lint YAML
         uses: ibiqlik/action-yamllint@v3
         with:
-          file_or_dir: test-project
+          file_or_dir: acme-project
           # yamllint disable rule:indentation
           config_data: |
             extends: default
@@ -43,7 +43,7 @@ jobs:
                 max: 88
               truthy:
                 ignore:
-                  - test-project/.github/workflows/*
+                  - acme-project/.github/workflows/*
             ignore:
-              - test-project/.copier-answers.yml
+              - acme-project/.copier-answers.yml
           # yamllint enable rule:indentation
