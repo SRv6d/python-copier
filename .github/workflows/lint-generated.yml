@@ -47,3 +47,7 @@ jobs:
             ignore:
               - acme-project/.copier-answers.yml
           # yamllint enable rule:indentation
+      - name: check black conformity
+        uses: psf/black@stable
+        with:
+          src: acme-project
