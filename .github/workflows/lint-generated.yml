@@ -22,9 +22,21 @@ jobs:
           -d author_name="Continuous Integration" \
           -d author_email="test@ci.com" \
           -d author_username="ci"
-      - name: lint created project
-        uses: github/super-linter/slim@v4
-        env:
-          DEFAULT_BRANCH: main
-          FILTER_REGEX_INCLUDE: .test-project/.*
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: lint YAML
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: test-project
+          # yamllint disable rule:indentation
+          config_data: |
+            extends: default
+            rules:
+              indentation:
+                spaces: 2
+                check-multi-line-strings: true
+              quoted-strings:
+                quote-type: double
+                required: only-when-needed
+              line-length:
+                max: 88
+            ignore-from-file: test-project/.gitignore
+          # yamllint enable rule:indentation
