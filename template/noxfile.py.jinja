@@ -46,9 +46,9 @@ def pytest(session: nox.Session) -> None:
 @nox.session(python=PYTHON)
 def safety(session: nox.Session) -> None:
     """Scan dependencies for known security vulnerabilities using safety."""
-    session.run("pdm", "install", "--no-self", external=True)
-    requirements_file = session.poetry.export_requirements()
-    session.run("safety", "check", f"--file={requirements_file}", "--full-report")
+    session.install("safety")
+    session.run("pdm", "export", "-o", "requirements.txt", external=True)
+    session.run("safety", "check", "--file=requirements.txt", "--full-report")
 
 
 @nox.session(python=PYTHON)
