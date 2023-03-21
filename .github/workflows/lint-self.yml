@@ -12,3 +12,19 @@ jobs:
           fetch-depth: 0
       - name: lint YAML
         uses: ibiqlik/action-yamllint@v3
+        with:
+          # yamllint disable rule:indentation
+          config_data: |
+            extends: default
+            rules:
+              indentation:
+                spaces: 2
+                check-multi-line-strings: true
+              quoted-strings:
+                quote-type: double
+                required: only-when-needed
+              line-length:
+                max: 88
+            ignore:
+              - template/
+          # yamllint enable rule:indentation
