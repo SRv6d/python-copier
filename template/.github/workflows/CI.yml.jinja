@@ -32,11 +32,11 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: pdm-project/setup-pdm@v3
         with:
 {%- raw %}
           python-version: ${{ matrix.python_version }}
-      - run: pip3 install poetry nox nox-poetry
+      - run: pdm install --check -dG dev
       - run: nox -s ${{ matrix.nox_session }}
 {%- endraw %}
   spellcheck:
