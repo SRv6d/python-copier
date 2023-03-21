@@ -28,3 +28,10 @@ jobs:
             ignore:
               - template/
           # yamllint enable rule:indentation
+      - name: lint workflows
+        # yamllint disable rule:line-length
+        run: |
+          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          ./actionlint -color
+        # yamllint enable rule:line-length
+        shell: bash
