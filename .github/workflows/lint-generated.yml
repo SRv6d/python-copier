@@ -1,6 +1,6 @@
 ---
 name: Lint the generated project
-on: [push]
+on: [push]  # yamllint disable-line rule:truthy
 
 jobs:
   lint-generated:
