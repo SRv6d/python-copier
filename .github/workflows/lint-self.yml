@@ -10,9 +10,5 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: lint self
-        uses: github/super-linter/slim@v4
-        env:
-          DEFAULT_BRANCH: main
-          FILTER_REGEX_EXCLUDE: .template/.*
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: lint YAML
+        uses: ibiqlik/action-yamllint@v3
