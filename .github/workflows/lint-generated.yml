@@ -38,5 +38,6 @@ jobs:
                 required: only-when-needed
               line-length:
                 max: 88
-            ignore-from-file: test-project/.gitignore
+            ignore:
+              - test-project/.copier-answers.yml
           # yamllint enable rule:indentation
