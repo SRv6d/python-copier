@@ -1,4 +1,5 @@
 ---
+name: Lint self
 on: [push]
 
 jobs:
