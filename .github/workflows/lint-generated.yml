@@ -22,6 +22,9 @@ jobs:
           -d author_name="Continuous Integration" \
           -d author_email="test@ci.com" \
           -d author_username="ci"
+      - name: create lockfile
+        run: pdm lock
+        working-directory: acme-project
       - name: lint YAML
         uses: ibiqlik/action-yamllint@v3
         with:
