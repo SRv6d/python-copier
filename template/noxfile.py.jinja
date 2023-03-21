@@ -12,7 +12,7 @@ os.environ.update({"PDM_IGNORE_SAVED_PYTHON": "1"})
 
 
 @nox.session(python=PYTHON)
-def ruff(session) -> None:
+def ruff(session: nox.Session) -> None:
     """Code Style linting using ruff."""
     session.run("pdm", "install", "--no-self", external=True)
 
@@ -22,32 +22,32 @@ def ruff(session) -> None:
         session.run("ruff", *LINT_LOCATIONS)
 
 @nox.session(python=PYTHON)
-def black(session) -> None:
+def black(session: nox.Session) -> None:
     """Check if style adheres to black."""
     session.run("pdm", "install", "--no-self", external=True)
     session.run("black", "--check", *LINT_LOCATIONS)
 
 @nox.session(python=PYTHON)
-def mypy(session) -> None:
+def mypy(session: nox.Session) -> None:
     """Static type checking using mypy."""
     session.run("pdm", "install", "--no-self", external=True)
     session.run("mypy", *LINT_LOCATIONS)
 
 @nox.session(python=PYTHON)
-def pytest(session) -> None:
+def pytest(session: nox.Session) -> None:
     """Run pytest tests."""
     session.run("pdm", "install", "--check", external=True)
     session.run("pytest", "--cov", "tests/unit")
 
 @nox.session(python=PYTHON)
-def safety(session) -> None:
+def safety(session: nox.Session) -> None:
     """Scan dependencies for known security vulnerabilities using safety."""
     session.run("pdm", "install", "--no-self", external=True)
     requirements_file = session.poetry.export_requirements()
     session.run("safety", "check", f"--file={requirements_file}", "--full-report")
 
 @nox.session(python=PYTHON)
-def codecov(session) -> None:
+def codecov(session: nox.Session) -> None:
     """Upload codecov coverage data."""
     session.run("pdm", "install", "--no-self", external=True)
     session.run("coverage", "xml", "--fail-under=0")
