@@ -36,7 +36,7 @@ jobs:
         with:
 {%- raw %}
           python-version: ${{ matrix.python_version }}
-      - run: pdm install --check -dG dev
+      - run: pip3 install nox
       - run: nox -s ${{ matrix.nox_session }}
 {%- endraw %}
   spellcheck:
