@@ -8,6 +8,7 @@ LINT_LOCATIONS = "src", "tests", "noxfile.py"
 SESSIONS = "ruff", "mypy", "black", "pytest"
 
 nox.options.sessions = SESSIONS
+os.environ.update({"PDM_IGNORE_SAVED_PYTHON": "1"})
 
 
 @nox.session(python=PYTHON)
