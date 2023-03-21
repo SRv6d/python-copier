@@ -1,6 +1,6 @@
 ---
 name: Lint the generated project
-on: [push]  # yamllint disable-line rule:truthy
+on: [push]
 
 jobs:
   lint-generated:
@@ -38,6 +38,9 @@ jobs:
                 required: only-when-needed
               line-length:
                 max: 88
+              truthy:
+                ignore:
+                  - test-project/.github/workflows/*
             ignore:
               - test-project/.copier-answers.yml
           # yamllint enable rule:indentation

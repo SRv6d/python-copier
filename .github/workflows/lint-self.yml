@@ -1,6 +1,6 @@
 ---
 name: Lint self
-on: [push]  # yamllint disable-line rule:truthy
+on: [push]
 
 jobs:
   lint-self:
@@ -25,6 +25,9 @@ jobs:
                 required: only-when-needed
               line-length:
                 max: 88
+              truthy:
+                ignore:
+                  - .github/workflows/*
             ignore:
               - template/
           # yamllint enable rule:indentation
