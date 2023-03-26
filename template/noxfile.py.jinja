@@ -4,7 +4,6 @@ import nox
 
 CI = bool(os.getenv("CI"))
 PYTHON = ["{{ python_version.versions | join('", "') }}"] if not CI else None
-LINT_LOCATIONS = "src", "tests"
 SESSIONS = "ruff", "mypy", "black", "pytest"
 
 nox.options.sessions = SESSIONS
@@ -15,21 +14,21 @@ os.environ.update({"PDM_IGNORE_SAVED_PYTHON": "1"})
 def ruff(session: nox.Session) -> None:
     """Code Style linting using ruff."""
     session.run("pdm", "install", "--no-self", external=True)
-    session.run("ruff", *LINT_LOCATIONS)
+    session.run("ruff", "src", "tests")
 
 
 @nox.session(python=PYTHON)
 def black(session: nox.Session) -> None:
     """Check if style adheres to black."""
     session.run("pdm", "install", "--no-self", external=True)
-    session.run("black", "--check", *LINT_LOCATIONS)
+    session.run("black", "--check", "src", "tests")
 
 
 @nox.session(python=PYTHON)
 def mypy(session: nox.Session) -> None:
     """Static type checking using mypy."""
     session.run("pdm", "install", "--no-self", external=True)
-    session.run("mypy", *LINT_LOCATIONS)
+    session.run("mypy", "src")
 
 
 @nox.session(python=PYTHON)
