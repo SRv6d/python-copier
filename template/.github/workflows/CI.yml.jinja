@@ -49,4 +49,4 @@ jobs:
       - run: pip3 install codespell
       - uses: codespell-project/codespell-problem-matcher@v1
       - name: check for typos
-        run: codespell
+        run: codespell src/ tests/ README.md
