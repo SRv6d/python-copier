@@ -1,0 +1,8 @@
+{
+  "name": "Python 3",
+  "image": "mcr.microsoft.com/devcontainers/python:0-3.8",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/nox:2": {},
+    "ghcr.io/devcontainers-contrib/features/yamllint:2": {}
+  }
+}
