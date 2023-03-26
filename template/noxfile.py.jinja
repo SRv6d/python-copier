@@ -35,7 +35,8 @@ def mypy(session: nox.Session) -> None:
 def pytest(session: nox.Session) -> None:
     """Run pytest tests."""
     session.run("pdm", "install", "--check", external=True)
-    session.run("pytest", "tests", *session.posargs if not CI else "--cov")
+    args = session.posargs if not CI else ["--cov"]
+    session.run("pytest", "tests", *args)
 
 
 @nox.session(python=PYTHON)
