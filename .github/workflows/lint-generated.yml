@@ -6,16 +6,21 @@ jobs:
   lint-generated:
     name: Lint the generated project
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        python_version: ["3.8", "3.9", "3.10", "3.11"]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python_version }}
       - run: pip3 install -r requirements.txt
       - run: |
           copier . acme-project \
+          --vcs-ref=HEAD \
           --defaults \
           -d project_name="Project ACME" \
           -d project_description="The description of the ACME project." \
@@ -51,3 +56,6 @@ jobs:
         uses: psf/black@stable
         with:
           src: acme-project
+      - name: validate noxfile
+        run: nox --list
+        working-directory: acme-project

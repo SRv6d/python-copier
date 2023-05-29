@@ -1,5 +1,5 @@
 import os
-from typing import Optional
+from typing import List, Optional
 
 import nox
 
@@ -17,7 +17,7 @@ def pdm_sync(
     self: bool = False,
     default: bool = False,
     editable: bool = True,
-    groups: Optional[list[str]] = None,
+    groups: Optional[List[str]] = None,
 ) -> None:
     """Install dependencies using PDM.
 
