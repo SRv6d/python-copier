@@ -51,3 +51,6 @@ jobs:
         uses: psf/black@stable
         with:
           src: acme-project
+      - name: validate noxfile
+        run: nox --list
+        working-directory: acme-project
