@@ -20,6 +20,7 @@ jobs:
       - run: pip3 install -r requirements.txt
       - run: |
           copier . acme-project \
+          --vcs-ref=HEAD \
           --defaults \
           -d project_name="Project ACME" \
           -d project_description="The description of the ACME project." \
