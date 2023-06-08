@@ -18,7 +18,7 @@ of managing different linters, typecheckers and workflows for mulitple repositor
 After installing [copier], run the following and answer the questions.
 
 ```shell
-copier gh:srv6d/python-copier /path/to/new/projet
+copier copy gh:srv6d/python-copier /path/to/new/projet
 ```
 
 [copier]: https://github.com/copier-org/copier/
