@@ -77,8 +77,36 @@ def lockfile(session: nox.Session) -> None:
 
 @nox.session(python=PYTHON)
 def pytest(session: nox.Session) -> None:
-    """Run pytest tests."""
-    pdm_sync(session, self=True, default=True, groups=["test"])
+    """Run fast pytest tests if not running in CI, otherwise run all."""
+    if not CI:
+        pytest_fast(session)
+    else:
+        pytest_full(session)
+
+
+@nox.session(python=PYTHON)
+def pytest_fast(session: nox.Session) -> None:
+    """Run pytest tests that are fast to execute.
+
+    This session excludes e2e tests and is intended to be
+    run multiple times during development.
+    """
+    pdm_sync(session, self=True, default=True, groups=["test", "cli"])
+    session.warn(
+        "Skipping e2e tests for faster execution. "
+        "To include them, run `nox -s pytest_full`."
+    )
+    session.run("pytest", "tests", "-m", "not e2e", *session.posargs)
+
+
+@nox.session(python=PYTHON)
+def pytest_full(session: nox.Session) -> None:
+    """Run all pytest tests.
+
+    This session includes all tests and is intended to be
+    run in CI or before a commit.
+    """
+    pdm_sync(session, self=True, default=True, groups=["test", "cli"])
     args = session.posargs if not CI else ["--cov"]
     session.run("pytest", "tests", *args)
 
