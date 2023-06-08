@@ -30,8 +30,8 @@ Repository = "https://github.com/{{ repository_namespace }}/{{ project_slug }}"
 Issues = "https://github.com/{{ repository_namespace }}/{{ project_slug }}/issues"
 
 [build-system]
-requires = ["pdm-pep517>=1.0"]
-build-backend = "pdm.pep517.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 [tool.pdm.version]
 source = "scm"
