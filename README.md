@@ -23,7 +23,7 @@ copier copy gh:srv6d/python-copier /path/to/new/projet
 
 [copier]: https://github.com/copier-org/copier/
 [black]: https://github.com/psf/black
-[ruff]: https://github.com/charliermarsh/ruff
+[ruff]: https://github.com/astral-sh/ruff
 [mypy]: https://github.com/python/mypy
 [pdm]: https://github.com/pdm-project/pdm
 [nox]: https://github.com/wntrblm/nox
