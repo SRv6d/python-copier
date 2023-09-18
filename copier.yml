@@ -18,6 +18,8 @@ project_license:
       short: GPL-3.0
     Elastic License 2.0 (ELv2):
       short: ELv2
+    Apache License 2.0:
+      short: Apache-2.0
   default: *mit_license
 author_name:
   type: str
@@ -29,6 +31,14 @@ author_email:
 author_username:
   type: str
   help: The authors GitHub username.
+copyright_holder:
+  type: str
+  help: The holder of the projects copyright.
+  default: "{{ author_name }}"
+copyright_holder_email:
+  type: str
+  help: The email of the projects copyright holder.
+  default: "{{ author_email }}"
 repository_namespace:
   type: str
   help: The namespace of the repository.
