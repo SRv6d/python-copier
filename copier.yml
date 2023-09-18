@@ -18,6 +18,8 @@ project_license:
       short: GPL-3.0
     Elastic License 2.0 (ELv2):
       short: ELv2
+    Apache License 2.0:
+      short: Apache-2.0
   default: *mit_license
 author_name:
   type: str
