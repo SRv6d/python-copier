@@ -4,7 +4,16 @@ description = "{{ project_description }}"
 authors = [
     {name = "{{ author_name }}", email = "{{ author_email }}"}
 ]
-license = {text = "{{ project_license.short }}"}
+license = {text = "
+    {%- if project_license == "MIT License" -%}
+    MIT
+    {%- elif project_license == "GNU General Public License v3.0" -%}
+    GPL-3.0
+    {%- elif project_license == "Elastic License 2.0 (ELv2)" -%}
+    ELv2
+    {%- elif project_license == "Apache License 2.0" -%}
+    Apache-2.0
+    {%- endif %}"}
 readme = "README.md"
 dynamic = ["version"]
 

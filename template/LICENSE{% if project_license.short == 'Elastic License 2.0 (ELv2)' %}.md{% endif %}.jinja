@@ -1,4 +1,4 @@
-{% if project_license.short == "MIT" -%}
+{% if project_license == "MIT License" -%}
 MIT License
 
 Copyright (c) {{ copyright_holder }} <{{ copyright_holder_email }}>
@@ -20,7 +20,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-{% elif project_license.short == "GPL-3.0" -%}
+{% elif project_license == "GNU General Public License v3.0" -%}
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -695,7 +695,7 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
-{% elif project_license.short == "ELv2" -%}
+{% elif project_license == "Elastic License 2.0 (ELv2)" -%}
 # Elastic License 2.0 (ELv2)
 
 ## Acceptance
@@ -757,7 +757,7 @@ Software: {{ project_name }}
 License: Elastic License 2.0 (ELv2)
 
 Licensor: {{ copyright_holder }}
-{% elif project_license.short == "Apache-2.0" -%}
+{% elif project_license == "Apache License 2.0" -%}
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
