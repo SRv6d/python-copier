@@ -26,7 +26,8 @@ jobs:
           -d project_description="The description of the ACME project." \
           -d author_name="American Company" \
           -d author_email="boom@acme.com" \
-          -d author_username="acme"
+          -d author_username="acme" \
+          -d python_versions="['3.8', '3.9', '3.10', '3.11']"
       - name: create lockfile
         run: pdm lock
         working-directory: acme-project

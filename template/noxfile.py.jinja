@@ -4,7 +4,7 @@ from typing import List, Optional
 import nox
 
 CI = bool(os.getenv("CI"))
-PYTHON = ["{{ python_version.versions | join('", "') }}"] if not CI else None
+PYTHON = ["{{ python_versions | join('", "') }}"] if not CI else None
 SESSIONS = "ruff", "mypy", "black", "lockfile", "pytest"
 
 nox.options.sessions = SESSIONS
