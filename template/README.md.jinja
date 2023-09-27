@@ -1,4 +1,3 @@
-#jinja2: lstrip_blocks: True
 # {{ project_name }}
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
@@ -7,8 +6,8 @@
 ![Python](https://img.shields.io/badge/v{{ python_versions[0] }}+-black?style=flat&color=FFFF00&label=Python)
 [![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm.fming.dev)\
 [![Actions status](https://github.com/{{ repository_namespace }}/{{ project_slug }}/workflows/CI/badge.svg)](https://github.com/{{ repository_namespace }}/{{ project_slug }}/actions)
-{% if display_codecov_badge %}
+{%- if display_codecov_badge %}
 [![codecov](https://codecov.io/gh/sourcegraph/conc/branch/main/graph/badge.svg?token={{ codecov_badge_token }})](https://codecov.io/gh/{{ repository_namespace }}/{{ project_slug }})
-{% endif %}
+{%- endif %}
 
 _{{ project_description }}_
