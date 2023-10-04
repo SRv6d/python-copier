@@ -91,7 +91,7 @@ def pytest_fast(session: nox.Session) -> None:
     This session excludes e2e tests and is intended to be
     run multiple times during development.
     """
-    pdm_sync(session, self=True, default=True, groups=["test", "cli"])
+    pdm_sync(session, self=True, default=True, groups=["test"])
     session.warn(
         "Skipping e2e tests for faster execution. "
         "To include them, run `nox -s pytest_full`."
@@ -106,7 +106,7 @@ def pytest_full(session: nox.Session) -> None:
     This session includes all tests and is intended to be
     run in CI or before a commit.
     """
-    pdm_sync(session, self=True, default=True, groups=["test", "cli"])
+    pdm_sync(session, self=True, default=True, groups=["test"])
     args = session.posargs if not CI else ["--cov"]
     session.run("pytest", "tests", *args)
 
