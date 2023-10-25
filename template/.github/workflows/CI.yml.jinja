@@ -26,7 +26,6 @@ jobs:
         python_version: ["{{ python_versions | join('", "') }}"]
         nox_session:
           - ruff
-          - black
           - mypy
           - lockfile
           - pytest
