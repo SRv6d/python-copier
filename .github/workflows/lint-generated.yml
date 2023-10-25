@@ -54,9 +54,10 @@ jobs:
               - acme-project/.copier-answers.yml
           # yamllint enable rule:indentation
       - name: check black conformity
-        uses: psf/black@stable
+        uses: chartboost/ruff-action@v1
         with:
           src: acme-project
+          args: format --check
       - name: validate noxfile
         run: nox --list
         working-directory: acme-project
