@@ -5,7 +5,7 @@ import nox
 
 CI = bool(os.getenv("CI"))
 PYTHON = ["{{ python_versions | join('", "') }}"] if not CI else None
-SESSIONS = "ruff", "mypy", "black", "lockfile", "pytest"
+SESSIONS = "ruff", "mypy", "lockfile", "pytest"
 
 nox.options.sessions = SESSIONS
 os.environ.update({"PDM_IGNORE_SAVED_PYTHON": "1"})
@@ -50,16 +50,16 @@ def pdm_check_lockfile(session: nox.Session) -> None:
 
 @nox.session(python=PYTHON)
 def ruff(session: nox.Session) -> None:
-    """Code Style linting using ruff."""
+    """Lint code and ensure formatting using ruff."""
     pdm_sync(session, groups=["lint"])
-    session.run("ruff", "src", "tests")
+    session.run("ruff", "check" "src", "tests")
+    session.run("ruff", "format", "--check", "src", "tests")
 
 
 @nox.session(python=PYTHON)
 def black(session: nox.Session) -> None:
     """Check if style adheres to black."""
-    pdm_sync(session, groups=["lint"])
-    session.run("black", "--check", "src", "tests")
+    ruff(session)
 
 
 @nox.session(python=PYTHON)

@@ -7,8 +7,7 @@ of managing different linters, typecheckers and workflows for mulitple repositor
 
 ## Feature Summary
 
-- [black] code formatting
-- [ruff] linting and import formatting
+- [ruff] linting, code & import formatting
 - [mypy] type checking
 - [PDM] packaging and dependency management
 - [Nox] linting, testing and maintenance task automation
@@ -22,7 +21,6 @@ copier copy gh:srv6d/python-copier /path/to/new/projet
 ```
 
 [copier]: https://github.com/copier-org/copier/
-[black]: https://github.com/psf/black
 [ruff]: https://github.com/astral-sh/ruff
 [mypy]: https://github.com/python/mypy
 [pdm]: https://github.com/pdm-project/pdm
