@@ -52,7 +52,7 @@ def pdm_check_lockfile(session: nox.Session) -> None:
 def ruff(session: nox.Session) -> None:
     """Lint code and ensure formatting using ruff."""
     pdm_sync(session, groups=["lint"])
-    session.run("ruff", "check" "src", "tests")
+    session.run("ruff", "check", "src", "tests")
     session.run("ruff", "format", "--check", "src", "tests")
 
 
